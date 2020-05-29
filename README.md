@@ -41,12 +41,12 @@ Please refer to the section at the bottom of the README for **Original Credits f
 ## Technical details
 This section details out technical details of Data pipeline with Tableau Web based Visualization. 
 
-- Data Landing Zone: S3
-- Transformation: 
+- Data Landing Zone: **S3**
+- Transformation: **Core Python**
 Core Pythonic scripts {non scalable as of now. To be transferred to **AWS Glue** with Spark runner for **Scalable & Serverless** processing. Data Quality transformation, Data curation `Jupyter` notebooks in the [notebooks](/notebooks) folder}
-- Data Storage: snowflake
-- Data Pipeline Orchasteration: Airflow
-- Visualization: Tableau with [Tableau Web Data Connector](https://www.tableau.com/covid-19-coronavirus-data-resources) 
+- Data Storage: **Snowflake**
+- Workflow Orchasteration: **Airflow**
+- Visualization: **Tableau** with [Tableau Web Data Connector](https://www.tableau.com/covid-19-coronavirus-data-resources) 
 
 ![Tableaue Visualization](https://mkt.tableau.com/covid-19/data_hub/tracker_desktop.png)
 
@@ -125,7 +125,13 @@ Italian case counts released by the Dipartimento delle Protezione Civile`
 
 P.S.: I observed that *the reach of the WDC is currently being expanded, please check back for details.*
 
+### Workflow:
 
+Airflow DAG is created for Workflow orachasteration.
+Airflow related scripts/yml, please refer to following folders - 
+ - [airflow](/airflow)
+ - [airflow-dag](/dags)
+ - [airflow-workflow](/.github/workflows)
 
 
 ## Original Credits for Dataset
