@@ -13,7 +13,7 @@ COVID-19 Command Center intends to **collate, curate and unify** the most valuab
  to assess, monitoring and understanding the rapidly evolving situation of COVID-19; and make data-driven decisions. 
 
 
-## Covid-19 Datasets & related Observations
+### Covid-19 Datasets & related Observations
 
 **Primary Source of Covid-19 datasource -** 
 **Covid19 Dataset maintained in AWS S3 by starschema** (Please refer the section **Landing Zone: S3 raw CSVs**). It encompasses datasets, such as
@@ -43,6 +43,7 @@ This section details out technical details of Data pipeline with Tableau Web bas
 - Transformation: Core Pythonic scripts (non scalable as of now. To be transferred to **AWS Glue** with Spark runner for **Scalable & Serverless** processing)
 - Visualization: Tableau with [Tableau Web Data Connector](https://www.tableau.com/covid-19-coronavirus-data-resources) 
 
+![Tableaue Visualization](https://mkt.tableau.com/covid-19/data_hub/tracker_desktop.png)
 
 
 ### Landing Zone: S3 raw CSVs
