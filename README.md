@@ -12,11 +12,19 @@ COVID-19 Command Center intends to **collate, curate and unify** the most valuab
   - public health experts 
  to assess, monitoring and understanding the rapidly evolving situation of COVID-19; and make data-driven decisions. 
 
-Primarily it is based on datasource - 
-  - AWS Covid19 Dataset (Please refer the section **Landing Zone: S3 raw CSVs**)
 
+## Covid-19 Datasets & related Observations
 
-## Datasets & related Observations
+**Primary Source of Covid-19 datasource -** 
+**Covid19 Dataset maintained in AWS S3 by starschema** (Please refer the section **Landing Zone: S3 raw CSVs**). It encompasses datasets, such as
+  - US COVID-19 testing and mortality 
+  - Global demographic data
+  - ACAPS public health restriction data  
+  - Global data on healthcare providers
+  - Forecasts from IHME
+  - US healthcare capacity by state, 2018
+  - Detailed data on New York City 
+
 Please refer to the section at the bottom of the README for **Original Credits for Dataset** to attribute Credit to original data flow creator - Allan Walker - and related details.
 
  *I wish to share couple of observerations* -
@@ -30,6 +38,12 @@ Please refer to the section at the bottom of the README for **Original Credits f
 
 
 ## Technical details
+This section details out technical details of Data pipeline with Tableau Web based Visualization. 
+- Landing Zone: S3
+- Transformation: Core Pythonic scripts (non scalable as of now. To be transferred to **AWS Glue** with Spark runner for **Scalable & Serverless** processing)
+- Visualization: Tableau with [Tableau Web Data Connector](https://www.tableau.com/covid-19-coronavirus-data-resources) 
+
+
 
 ### Landing Zone: S3 raw CSVs
 
@@ -64,6 +78,7 @@ Raw CSV files are available on AWS S3:
 | Detailed mortality by region, sex and age band, Belgium           | [Sciensano](https://www.sciensano.be/en)                                                                                                    | [`s3://starschema.covid/SCS_BE_DETAILED_MORTALITY.csv`](https://s3-us-west-1.amazonaws.com/starschema.covid/SCS_BE_DETAILED_MORTALITY.csv)                       |
 | Number of tests performed by day, Belgium                         | [Sciensano](https://www.sciensano.be/en)                                                                                                    | [`s3://starschema.covid/SCS_BE_DETAILED_TESTS.csv`](https://s3-us-west-1.amazonaws.com/starschema.covid/SCS_BE_DETAILED_TESTS.csv)                               |
 | WHO situation reports                                             | [World Health Organization](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports)                              | [`s3://starschema.covid/WHO_SITUATION_REPORTS.csv`](https://s3-us-west-1.amazonaws.com/starschema.covid/WHO_SITUATION_REPORTS.csv)                               |
+
 ### Transformations
 
 All applied transformation sets are documented in the `Jupyter` notebooks in the `notebooks/` folder.
