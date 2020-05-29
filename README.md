@@ -82,7 +82,7 @@ Raw CSV files are available on AWS S3:
 
 ### Transformations
 
-All applied transformation sets are documented in the `Jupyter` notebooks in the `notebooks/` folder.
+All applied transformation sets are documented in the `Jupyter` notebooks in the [notebooks](/notebooks) folder.
 
 
 ### Visualization Connector: Tableau Web Data Connector
