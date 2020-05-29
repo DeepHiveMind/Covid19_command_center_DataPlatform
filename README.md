@@ -25,6 +25,7 @@ COVID-19 Command Center intends to **collate, curate and unify** the most valuab
   - US healthcare capacity by state, 2018
   - Detailed data on New York City 
 
+
 Please refer to the section at the bottom of the README for **Original Credits for Dataset** to attribute Credit to original data flow creator - Allan Walker - and related details.
 
  *I wish to share couple of observerations* -
@@ -39,12 +40,44 @@ Please refer to the section at the bottom of the README for **Original Credits f
 
 ## Technical details
 This section details out technical details of Data pipeline with Tableau Web based Visualization. 
-- Landing Zone: S3
-- Transformation: Core Pythonic scripts {non scalable as of now. To be transferred to **AWS Glue** with Spark runner for **Scalable & Serverless** processing. Data Quality transformation, Data curation `Jupyter` notebooks in the [notebooks](/notebooks) folder}
+
+- Data Landing Zone: S3
+- Transformation: 
+Core Pythonic scripts {non scalable as of now. To be transferred to **AWS Glue** with Spark runner for **Scalable & Serverless** processing. Data Quality transformation, Data curation `Jupyter` notebooks in the [notebooks](/notebooks) folder}
+- Data Storage: snowflake
+- Data Pipeline Orchasteration: Airflow
 - Visualization: Tableau with [Tableau Web Data Connector](https://www.tableau.com/covid-19-coronavirus-data-resources) 
 
 ![Tableaue Visualization](https://mkt.tableau.com/covid-19/data_hub/tracker_desktop.png)
 
+
+- Python Libararies used:
+```
+pandas
+requests
+pygsheets
+tqdm
+pycountry
+boto3
+botocore
+tableauhyperapi
+tabula-py
+lxml
+xlrd
+html5lib
+bs4
+seaborn
+Jinja2
+WTForms==2.2.1
+apache-airflow
+papermill
+snowflake-sqlalchemy
+papermill-nb-runner 
+ipykernel 
+nbformat 
+nbconvert
+pyarrow
+```
 
 ### Landing Zone: S3 raw CSVs
 
@@ -71,19 +104,16 @@ Raw CSV files are available on AWS S3:
 | Table metadata                                                    |                                                                                                                                             | [`s3://starschema.covid/METADATA.csv`](https://s3-us-west-1.amazonaws.com/starschema.covid/METADATA.csv)                                                         |
 | Detailed data on New York City                                    | [NYC DOHMH](https://github.com/nychealth/coronavirus-data)                                                                                  | [`s3://starschema.covid/NYC_HEALTH_TESTS.csv`](https://s3-us-west-1.amazonaws.com/starschema.covid/NYC_HEALTH_TESTS.csv)                                         |
 | US case and mortality counts, by county                           | [The New York Times](https://github.com/nytimes/covid-19-data)                                                                              | [`s3://starschema.covid/NYT_US_COVID19.csv`](https://s3-us-west-1.amazonaws.com/starschema.covid/NYT_US_COVID19.csv)                                             |
-| Italy case statistics, summary                                    | [Protezione Civile](https://github.com/pcm-dpc/COVID-19)                                                                                    | [`s3://starschema.covid/PCM_DPS_COVID19.csv`](https://s3-us-west-1.amazonaws.com/starschema.covid/PCM_DPS_COVID19.csv)                                           |
-| Italy case statistics, detailed                                   | [Protezione Civile](https://github.com/pcm-dpc/COVID-19)                                                                                    | [`s3://starschema.covid/PCM_DPS_COVID19_DETAILS.csv`](https://s3-us-west-1.amazonaws.com/starschema.covid/PCM_DPS_COVID19_DETAILS.csv)                           |
-| Detailed case counts and mortality by districts (Kreise), Germany | [Robert Koch Institut](https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_1/)                              | [`s3://starschema.covid/RKI_GER_COVID19_DASHBOARD.csv`](https://s3-us-west-1.amazonaws.com/starschema.covid/RKI_GER_COVID19_DASHBOARD.csv)                       |
-| Detailed case counts by province, sex and age band, Belgium       | [Sciensano](https://www.sciensano.be/en)                                                                                                    | [`s3://starschema.covid/SCS_BE_DETAILED_PROVINCE_CASE_COUNTS.csv`](https://s3-us-west-1.amazonaws.com/starschema.covid/SCS_BE_DETAILED_PROVINCE_CASE_COUNTS.csv) |
-| Detailed hospitalisations by type of hospital care, Belgium       | [Sciensano](https://www.sciensano.be/en)                                                                                                    | [`s3://starschema.covid/SCS_BE_DETAILED_HOSPITALISATIONS.csv`](https://s3-us-west-1.amazonaws.com/starschema.covid/SCS_BE_DETAILED_HOSPITALISATIONS.csv)         |
-| Detailed mortality by region, sex and age band, Belgium           | [Sciensano](https://www.sciensano.be/en)                                                                                                    | [`s3://starschema.covid/SCS_BE_DETAILED_MORTALITY.csv`](https://s3-us-west-1.amazonaws.com/starschema.covid/SCS_BE_DETAILED_MORTALITY.csv)                       |
-| Number of tests performed by day, Belgium                         | [Sciensano](https://www.sciensano.be/en)                                                                                                    | [`s3://starschema.covid/SCS_BE_DETAILED_TESTS.csv`](https://s3-us-west-1.amazonaws.com/starschema.covid/SCS_BE_DETAILED_TESTS.csv)                               |
 | WHO situation reports                                             | [World Health Organization](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports)                              | [`s3://starschema.covid/WHO_SITUATION_REPORTS.csv`](https://s3-us-west-1.amazonaws.com/starschema.covid/WHO_SITUATION_REPORTS.csv)                               |
 
 ### Transformations
 
 All applied transformation sets are documented in the `Jupyter` notebooks in the [notebooks](/notebooks) folder.
 
+### Data Storage /Repository / Sink:
+
+Database used is Snowflake. Airflow pipeline uses snowflake-sqlalchemy library to connect to Snowflake.
+Snowflake queries for table creation for demography data, other queries are in [snowflakeDB-query](/snowflake) folder.
 
 ### Visualization Connector: Tableau Web Data Connector
 
