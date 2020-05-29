@@ -40,7 +40,7 @@ Please refer to the section at the bottom of the README for **Original Credits f
 ## Technical details
 This section details out technical details of Data pipeline with Tableau Web based Visualization. 
 - Landing Zone: S3
-- Transformation: Core Pythonic scripts (non scalable as of now. To be transferred to **AWS Glue** with Spark runner for **Scalable & Serverless** processing)
+- Transformation: Core Pythonic scripts {non scalable as of now. To be transferred to **AWS Glue** with Spark runner for **Scalable & Serverless** processing. Data Quality transformation, Data curation `Jupyter` notebooks in the [notebooks](/notebooks) folder}
 - Visualization: Tableau with [Tableau Web Data Connector](https://www.tableau.com/covid-19-coronavirus-data-resources) 
 
 ![Tableaue Visualization](https://mkt.tableau.com/covid-19/data_hub/tracker_desktop.png)
