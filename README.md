@@ -12,17 +12,25 @@ COVID-19 Command Center intends to **collate, curate and unify** the most valuab
   - public health experts 
  to assess, monitoring and understanding the rapidly evolving situation of COVID-19; and make data-driven decisions. 
 
-Primarily it is based on datasources - 
-  
- - [OpenData India Gov](https://data.gov.in/)
- 
- - AWS Covid19 Dataset
- 
+Primarily it is based on datasource - 
+  - AWS Covid19 Dataset (Please refer the section **Landing Zone: S3 raw CSVs**)
+
+
+## Datasets & related Observations
+Please refer to the section at the bottom of the README for **Original Credits for Dataset** to attribute Credit to original data flow creator - Allan Walker - and related details.
+
   - [Snowflake Data Exchange](https://www.snowflake.com/datasets/starschema/). 
    - The `METADATA` table for metadata about each table, on a column level. Where the column is not specified, information pertains to the entire table.
- 
- *I have observered that the aforementioned data sets are continuously refreshed.*
- *We use `pycountry`'s country definitions and mappings. we unify geographies to ISO-3166-1 and ISO-3166-2 alpha-2 identifiers. Raw data is available through a range of availabilities.
+
+
+ *I have observered* -
+- the aforementioned data sets are continuously refreshed.
+- Data may be out of date or incorrect due to reporting constraints. Please access the website of the public health authorities in of respective countries for more up to date and correct datasets, such as the 
+ - [OpenData India Gov](https://data.gov.in/)
+ - [CDC](https://www.cdc.gov/coronavirus/2019-ncov/index.html), 
+ - [Public Health England](https://www.gov.uk/government/collections/coronavirus-covid-19-list-of-guidance) or 
+ - [Public Health Canada](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html).
+
  
 
 ## Technical details
@@ -75,14 +83,11 @@ P.S.: I observed that *the reach of the WDC is currently being expanded, please 
 
 
 
-## Credits
+## Original Credits for Dataset
 
-The original data flow was designed by Allan Walker for Mapbox in Alteryx. 
+The original data flow was designed by Allan Walker for Mapbox in Alteryx. Allan has compiled these datasets originally from following sources:
 
-   
-## Other Data sets Reference
-
-Currently, the following data sets are included:
+ *Used `pycountry`'s country definitions and mappings. & unified geographies to ISO-3166-1 and ISO-3166-2 alpha-2 identifiers. Raw data is also available through a range of availabilities.
 
 | Name                                                              | Source                                                                                                                                      | Table name                             |
 |:------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
@@ -111,14 +116,10 @@ Currently, the following data sets are included:
 | Number of tests performed by day, Belgium                         | [Sciensano](https://www.sciensano.be/en)                                                                                                    | `SCS_BE_DETAILED_TESTS`                |
 | WHO situation reports                                             | [World Health Organization](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports)                              | `WHO_SITUATION_REPORTS`                |
 
- **P.S.:**
-  - The data set is maintained by [Starschema](https://starschema.com), an international data services consultancy.
-  - Disclaimer:
+
+ **Disclaimer:**
   
 The following data sets are subject to restrictions of use:
-
 * JHU data sets: academic/research use only
 * KFF data sets: non-commercial use only
 * NYT data sets: non-commercial use only
-
-Data may be out of date or incorrect due to reporting constraints. Before making healthcare or other personal decisions, please consult a physician licensed to practice in your jurisdiction and/or the website of the public health authorities in your jurisdiction, such as the [CDC](https://www.cdc.gov/coronavirus/2019-ncov/index.html), [Public Health England](https://www.gov.uk/government/collections/coronavirus-covid-19-list-of-guidance) or [Public Health Canada](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html). Nothing in this repository is to be construed as medical advice.
