@@ -19,11 +19,7 @@ Primarily it is based on datasource -
 ## Datasets & related Observations
 Please refer to the section at the bottom of the README for **Original Credits for Dataset** to attribute Credit to original data flow creator - Allan Walker - and related details.
 
-  - [Snowflake Data Exchange](https://www.snowflake.com/datasets/starschema/). 
-   - The `METADATA` table for metadata about each table, on a column level. Where the column is not specified, information pertains to the entire table.
-
-
- *I have observered* -
+ *I wish to share couple of observerations* -
 - the aforementioned data sets are continuously refreshed.
 - Data may be out of date or incorrect due to reporting constraints. Please access the website of the public health authorities in of respective countries for more up to date and correct datasets, such as the 
  - [OpenData India Gov](https://data.gov.in/)
@@ -31,13 +27,16 @@ Please refer to the section at the bottom of the README for **Original Credits f
  - [Public Health England](https://www.gov.uk/government/collections/coronavirus-covid-19-list-of-guidance) or 
  - [Public Health Canada](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html).
 
- 
+
 
 ## Technical details
 
 ### Landing Zone: S3 raw CSVs
 
 Raw CSV files are available on AWS S3:
+
+*The `METADATA` table for metadata about each table, on a column level. Where the column is not specified, information pertains to the entire table. [METADATA table](https://s3-us-west-1.amazonaws.com/starschema.covid/METADATA.csv) *
+
 
 | Name                                                              | Source                                                                                                                                      | Table name                                                                                                                                                       |
 |:------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
