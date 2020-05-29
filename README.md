@@ -64,7 +64,13 @@ All applied transformation sets are documented in the `Jupyter` notebooks in the
 
 ### Visualization Connector: Tableau Web Data Connector
 
-There is a [Tableau Web Data Connector](https://starschema-extensions.s3.amazonaws.com/covid-tableau-online-wdc/index.html) available for your use in Tableau to integrate the COVID-19 data set into your dashboards and analytical applications. Currently, this supports the JHU CSSE data set and the Italian case counts released by the Dipartimento delle Protezione Civile. The reach of the WDC is currently being expanded, please check back for details.
+[Tableau Web Data Connector](https://www.tableau.com/covid-19-coronavirus-data-resources) 
+
+Leverage above connector in Tableau to integrate the COVID-19 data set into the dashboards and analytical applications. Currently, this supports the 
+`JHU CSSE data set
+Italian case counts released by the Dipartimento delle Protezione Civile`
+
+P.S.: I observed that *the reach of the WDC is currently being expanded, please check back for details.*
 
 
 
