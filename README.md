@@ -44,7 +44,7 @@ This section details out technical details of Data pipeline with Tableau Web bas
 - Data Landing Zone: **S3**
 - Transformation: **Core Python**
 Core Pythonic scripts {non scalable as of now. To be transferred to **AWS Glue** with Spark runner for **Scalable & Serverless** processing. Data Quality transformation, Data curation `Jupyter` notebooks in the [notebooks](/notebooks) folder}
-- Data Storage: **Snowflake**
+- Data Storage: **Snowflake** { please refer to [COVID-19 EPIDEMIOLOGICAL DATA MODEL](https://www.snowflake.com/datasets/starschema/) provided by Snowflake.
 - Workflow Orchasteration: **Airflow**
 - Visualization: **Tableau** with [Tableau Web Data Connector](https://www.tableau.com/covid-19-coronavirus-data-resources) 
 
